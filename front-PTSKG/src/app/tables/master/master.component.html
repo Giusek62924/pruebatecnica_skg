@@ -1,0 +1,156 @@
+<nav class="navbar">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggler" data-toggle="open-navbar1">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <a href="#">
+        <h4>Pruebas Tecnicas<span> - SKG</span></h4>
+      </a>
+    </div>
+
+    <div class="navbar-menu" id="open-navbar1">
+      <ul class="navbar-nav">
+        <li class="active"><a href="/#/tables/TableM">Tablas</a></li>
+        <li><a href="http://104.198.48.105:8000/swagger/">Swagger</a></li>
+        <li><a href="http://104.198.48.105:8000/docs/">Documentación</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<table class="table tablesorter table-sm" id="NMTableU">
+  <button
+    class="btn btn-info btn-link btn-icon"
+    title="Editar"
+    type="button"
+    (click)="lgModal.show()"
+  >
+    <i class="fa-solid fa-plus"></i>
+  </button>
+  <!-- Encabezados -->
+  <thead class="text-primary">
+    <tr>
+      <th class="text-center">Entidad</th>
+      <th>Rol</th>
+      <th>Ciudad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of this.List">
+      <!-- Datos Generales -->
+      <td class="text-left">
+        {{ this.entity[item.entity - 1] }}
+      </td>
+      <td>{{ this.role[item.role - 1] }}</td>
+      <td>{{ this.city[item.city - 1] }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">...</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal crear -->
+<div
+  bsModal
+  #lgModal="bs-modal"
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+  id="lgModal"
+  aria-hidden="true"
+  aria-labelledby="myModalLabel"
+>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-sizes-name1" class="modal-title pull-left">
+          Crear Listado
+        </h4>
+        <button
+          type="button"
+          class="btn-close close pull-right"
+          (click)="lgModal.hide()"
+          aria-label="Close"
+        >
+          <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+      </div>
+      <form
+        class="form-horizontal"
+        id="TypeValidation"
+        [formGroup]="formData"
+        (ngSubmit)="createData()"
+      >
+        <div class="modal-body">
+          <div>
+            <span> Entidad </span>
+            <select name="Entidad" formControlName="entity">
+              <option value="1">Bancolombia</option>
+              <option value="2" selected>Colpatria</option>
+              <option value="3">Davivienda</option>
+            </select>
+          </div>
+          <div>
+            <span> Ciudad </span>
+            <select name="Entidad" formControlName="city">
+              <option value="1">Bogotá</option>
+              <option value="2" selected>Barranquilla</option>
+              <option value="3">Santa Marta</option>
+            </select>
+          </div>
+          <div>
+            <span> Rol </span>
+            <select name="Entidad" formControlName="role">
+              <option value="1">Cliente</option>
+              <option value="2" selected>Usuario</option>
+              <option value="3">Administrador</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            class="btn btn-info btn-link btn-icon"
+            type="sumbit"
+            (click)="lgModal.hide()"
+          >
+            Crear
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

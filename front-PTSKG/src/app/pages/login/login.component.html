@@ -1,0 +1,27 @@
+<form [formGroup]="formLogIn" (ngSubmit)="onLogin()" class="login">
+    <input
+      name="username"
+      onkeypress="return (event.charCode != 32)"
+      formControlName="username"
+      placeholder="UserName"
+      type="text"
+      (focus)="focus = true; focusTouched = true"
+      (blur)="focus = false"
+    />
+
+    <input
+      id="registerPassword"
+      formControlName="password"
+      placeholder="Contraseña"
+      (focus)="focus1Touched = true; focus1 = true"
+      (blur)="focus1 = false"
+      name="password"
+      required=""
+      type="password"
+    />
+
+    <button *ngIf="PreloadInfo == false">Entrar</button>
+    <div class="preloader" *ngIf="PreloadInfo == true"></div>
+  </form>
+
+  <a href="https://codepen.io/davinci/" target="_blank">check my other pens</a>

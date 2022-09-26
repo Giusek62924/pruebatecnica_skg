@@ -1,0 +1,15 @@
+services:
+  skg_front:
+    build: .
+    ports:
+      - 80:80
+
+  
+
+
+networks:
+  skg_network:
+    name: skg_network
+    driver: bridge
+    ipam:
+      driver: default

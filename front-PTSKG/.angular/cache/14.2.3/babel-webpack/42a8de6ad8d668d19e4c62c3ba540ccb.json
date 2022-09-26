@@ -1,0 +1,1 @@
+{"ast":null,"code":"export const Servers = {\n  Development: \"http://34.102.36.174:8000\",\n  Deploy: \"http://localhost:8000\",\n  Broker_Deploy: \"172.30.131.193\" // Cygnus : broker.prod.cygnus.tsg.net.co Tel : 172.30.131.193\n\n};","map":null,"metadata":{},"sourceType":"module"}

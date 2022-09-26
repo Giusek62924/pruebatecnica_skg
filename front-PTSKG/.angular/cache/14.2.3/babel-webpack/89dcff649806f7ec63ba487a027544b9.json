@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { MasterComponent } from './master/master.component';\nexport const TablesRoutes = [{\n  path: \"\",\n  children: [{\n    path: \"TableM\",\n    component: MasterComponent\n  }]\n}];","map":null,"metadata":{},"sourceType":"module"}
